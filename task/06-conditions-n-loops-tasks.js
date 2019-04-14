@@ -91,7 +91,8 @@ function getSumBetweenNumbers(n1, n2) {
  *   10,10,10 =>  true
  */
 function isTriangle(a,b,c) {
-    throw new Error('Not implemented');
+    if (a + b <=c || a + c <=b || b + c <= a) {return false}
+    else {return true};
 }
 
 
@@ -218,7 +219,8 @@ function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
  * 'noon' => 'noon'
  */
 function reverseString(str) {
-    throw new Error('Not implemented');
+    let c =  str.split("").reverse().join("");
+    return c;
 }
 
 
@@ -236,6 +238,7 @@ function reverseString(str) {
  */
 function reverseInteger(num) {
     throw new Error('Not implemented');
+    
 }
 
 
@@ -279,7 +282,7 @@ function isCreditCardNumber(ccn) {
  *   165536 (1+6+5+5+3+6 = 26,  2+6 = 8) => 8
  */
 function getDigitalRoot(num) {
-    throw new Error('Not implemented');
+    return (num - 1) % 9 + 1;;
 }
 
 
