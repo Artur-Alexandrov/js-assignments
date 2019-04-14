@@ -140,7 +140,10 @@ function getUpperCaseStrings(arr) {
  *    [ 'angular', 'react', 'ember' ] => [ 7, 5, 5 ]
  */
 function getStringsLength(arr) {
-   throw new Error('Not implemented');
+   let k = arr.map(function(item) {
+      return item.length
+   });
+   return k;
 }
 
 /**
@@ -155,7 +158,8 @@ function getStringsLength(arr) {
  *    [ 1, 'b', 'c'], 0, 'x'  => [ 'x', 1, 'b', 'c' ]
  */
 function insertItem(arr, item, index) {
-   throw new Error('Not implemented');
+   arr.splice(index, 0, item);
+   return arr;
 }
 
 /**
@@ -169,7 +173,7 @@ function insertItem(arr, item, index) {
  *    [ 'a', 'b', 'c', 'd'], 3  => [ 'a', 'b', 'c' ]
  */
 function getHead(arr, n) {
-   throw new Error('Not implemented');
+   return arr.slice(0, n);
 }
 
 
@@ -184,7 +188,7 @@ function getHead(arr, n) {
  *    [ 'a', 'b', 'c', 'd'], 3  => [ 'b', 'c', 'd' ]
  */
 function getTail(arr, n) {
-   throw new Error('Not implemented');
+   return arr.slice(arr.length - n, arr.length);
 }
 
 
@@ -224,7 +228,7 @@ function toCsvText(arr) {
  *   [ 10, 100, -1 ]      => [ 100, 10000, 1 ]
  */
 function toArrayOfSquares(arr) {
-   throw new Error('Not implemented');
+   return arr.map(function(item) {return item**2});
 }
 
 
@@ -258,7 +262,10 @@ function getMovingSum(arr) {
  * [ "a" ] => []
  */
 function getSecondItems(arr) {
-   throw new Error('Not implemented');
+   let newArr = arr.filter(function(value, index, ar) {
+      return index % 2 === 1 })
+  
+  return newArr;
 }
 
 
@@ -295,7 +302,8 @@ function propagateItemsByPositionIndex(arr) {
  *   [ 10, 10, 10, 10 ] => [ 10, 10, 10 ]
  */
 function get3TopItems(arr) {
-   throw new Error('Not implemented');
+   let arr1 = arr.sort((a,b) => b - a).slice(0,3);
+return arr1;
 }
  
  
@@ -313,7 +321,9 @@ function get3TopItems(arr) {
  *   [ 1, '2' ] => 1
  */
 function getPositivesCount(arr) {
-   throw new Error('Not implemented');
+   let k = arr.filter(x => x > 0);
+   let p = k.filter(x => typeof(x) === "number" )
+   return p.length;
 }
  
 /** 
@@ -346,7 +356,9 @@ function sortDigitNamesByNumericOrder(arr) {
  *   [ 1, 10, 100, 1000 ]  => 1111
  */
 function getItemsSum(arr) {
-   throw new Error('Not implemented');
+   const reducer = (accumulator, currentValue) => accumulator + currentValue;
+   if (arr.length === 0) {return 0} else {
+   return arr.reduce(reducer)}
 }
  
 /** 
@@ -380,7 +392,8 @@ function getFalsyValuesCount(arr) {
  *    [ true, 0, 1, 'true' ], true => 1
  */
 function findAllOccurences(arr, item) {
-   throw new Error('Not implemented');
+   let p = arr.filter(x => x === item);
+   return p.length;
 }
 
 /**
@@ -395,7 +408,7 @@ function findAllOccurences(arr, item) {
  *    ['rock', 'paper', 'scissors']     => 'rock,paper,scissors'
  */
 function toStringList(arr) {
-   throw new Error('Not implemented');
+   return arr.join(",");
 }
 
 
@@ -573,6 +586,7 @@ function swapHeadAndTail(arr) {
 
 
 module.exports = {
+
     findElement: findElement,
     generateOdds: generateOdds,
     doubleArray: doubleArray,
@@ -604,4 +618,8 @@ module.exports = {
     selectMany: selectMany,
     getElementByIndexes: getElementByIndexes,
     swapHeadAndTail: swapHeadAndTail
+   
+
 };
+
+
